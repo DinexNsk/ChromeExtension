@@ -1,0 +1,30 @@
+{
+    "manifest_version": 2,
+    "name": "Angular Extension",
+    "description": "listening url and send a message",
+    "version": "1.0",
+    "background": {
+      "page": "index.html#/event-page",
+      "persistent": false
+    },
+    "icons":{
+            "128": "assets/img/fav.png"
+          },
+    "browser_action": {
+        "default_popup": "index.html#/popup",
+        "default_title": "DiNeX App"
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "alarms"
+    ],
+    "content_scripts": [
+        {
+          "matches": ["*://*/*"],
+          "js": [ "assets/content.js" ]
+        }
+      ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "web_accessible_resources": ["assets/content.css"]
+}
