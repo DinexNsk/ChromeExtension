@@ -1,0 +1,11 @@
+<div *ngIf="domainList" class="exists">
+  <h4>Список сайтов:</h4> 
+  <div *ngFor="let domain of domainList">
+    <a href="https://{{domain.domain}}" target="_blank" rel="nofollow noopener">
+      {{domain.domain}}
+    </a>
+  </div>
+</div>
+<div *ngIf="!domainList" class="exists">
+    <h4>Не удалось загрузить список сайтов, загляните позже...</h4>
+</div>
