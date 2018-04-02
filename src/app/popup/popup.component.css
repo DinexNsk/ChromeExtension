@@ -1,7 +1,8 @@
 .exists{
     align-items: center;
     width: 200px;
-    background-color: rgb(255, 136, 0);
+    background-color: #dff0d8;
+    color: #3c763d;
     display: flex;
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
@@ -14,7 +15,7 @@
 .exists a{
     cursor: pointer;
     text-decoration: none;
-    border: black 1px solid;
+    border: 1px solid #3c763d;
     border-radius: 10px;
     color: black;
     padding: 2px 5px;
