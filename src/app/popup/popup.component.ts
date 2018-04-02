@@ -17,7 +17,7 @@ export class PopupComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.refreshList();
+    this.getDomainList();
   }
 
   getDomainList(){
@@ -26,8 +26,5 @@ export class PopupComponent implements OnInit {
         result => this.domainList = result
       )
   }
-  refreshList(){
-    this.getDomainList();
-    setInterval(this.getDomainList, 3.6e+6)
-  }
+
 }

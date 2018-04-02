@@ -27,7 +27,7 @@ export class EventPageComponent implements OnInit {
   startListener() {
     chrome.tabs.onUpdated.addListener(
       (tabId, changeInfo, tab) => {
-        if((this.count < 3) && changeInfo.status == "complete" && this.search(tab.url, this.sitesList)){
+        if((this.count < 3) && changeInfo.status === "complete" && this.search(tab.url, this.sitesList)){
           this.count++;
           let message = this.sitesList[this.foundIndex].message;
           chrome.tabs.sendMessage(tab.id, {messageText: message}, this.getResponse);
@@ -49,7 +49,7 @@ export class EventPageComponent implements OnInit {
   }
 
   search(urlFull:string, arr:Domain[]):boolean{
-    for (var i=0; i < arr.length; i++) {
+    for (let i=0; i < arr.length; i++) {
       if (urlFull.indexOf(arr[i].name) !== -1){
         this.foundIndex = i;
         return true;
@@ -69,7 +69,7 @@ export class EventPageComponent implements OnInit {
     this.getDomainList();
     chrome.alarms.create('refreshData', {periodInMinutes:60});
     chrome.alarms.onAlarm.addListener(alarms => {
-      if(alarms.name == 'refreshData'){
+      if(alarms.name === 'refreshData'){
         this.getDomainList()
       }
     })
