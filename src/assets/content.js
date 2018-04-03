@@ -15,27 +15,30 @@ function createElement(message) {
     link.href = chrome.runtime.getURL("/assets/content.css"); 
     link.type = 'text/css'; 
     link.rel = 'stylesheet'; 
-    document.documentElement.insertBefore(link, document.body);
+    document.head.appendChild(link);
     /* Addind main block */
     let div = document.createElement('div');
     div.id = 'messageBox';
     div.className = "message";
     div.innerHTML = message;
-    document.body.insertBefore(div, document.body.firstChild);
+    document.documentElement.insertBefore(div, document.documentElement.lastChild);
     /* Adding close-icon */
     let close = document.createElement('div');
     close.className = "close"
     close.innerHTML = '<strong>x</strong>';
     close.addEventListener('click', removeItem);
-    document.body.firstChild.appendChild(close);
+    let k = document.getElementById('messageBox');
+    k.appendChild(close);
+    document.body.style.transform = "translateY(0)";
 }
 
 /* delete Message-box and style-link */
 function removeItem(){
     let item = document.getElementById('messageBox');
-    document.body.removeChild(item);
-    item = document.getElementById('messageLink');
     document.documentElement.removeChild(item);
+    item = document.getElementById('messageLink');
+    console.log(item);
+    document.head.removeChild(item);
     chrome.runtime.sendMessage({messageText: 3}, getResponse);
 }
 
