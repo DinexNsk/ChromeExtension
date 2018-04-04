@@ -36,6 +36,10 @@ export class EventPageComponent implements OnInit {
                 sendResponse({"messageText": "answerToScript"});
           });
         }
+        if(changeInfo.status === "complete" &&
+          tab.url.match(/((google.(com|ru))|(bing.com))\/search/gi)!== null){
+            chrome.tabs.sendMessage(tab.id, {messageObject: this.sitesList}, this.getResponse);
+        }
       }
     );
   }
