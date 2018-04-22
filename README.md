@@ -1,27 +1,27 @@
-# AngularExtension
+# react-chrome-extension
+This simple chrome extension written using Angular5.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+# What extension supposed to do:
 
-## Development server
+ 1. Download list from url http://www.softomate.net/ext/employees/list.json
+ 2. When user visits page("domain") from list, then show "message", that injects on page:
+![Message on the page](https://i.imgur.com/Ps6xM2m.png)
+ 3. This message can be shown no more than three times
+ 4. If the user has closed the message, it will no longer be displayed
+ 5. In popup display the list of links("domain")
+ 6. On the search page in google.[com|ru], bing .com  mark all sites from the list("domain") with extension icon 
+![enter image description here](https://i.imgur.com/c2OAx5O.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## To Run An Example
 
-## Code scaffolding
+Clone or download this repo.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Navigate to an example's root folder, then run:
+```
+npm install 
+```
+To build the project, run:
+```
+npm build
+```
+Then use "dist" folder like extension folder in chrome
